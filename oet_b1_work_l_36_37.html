@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OET B1-work-l -36-37</title>
+  <style>
+    :root {
+      --primary: #1565c0;
+      --primary-dark: #0d47a1;
+      --success: #2e7d32;
+      --error: #c62828;
+      --bg: #e3f2fd;
+      --card: #ffffff;
+      --border: #90caf9;
+      --text: #1a1a2e;
+      --muted: #1565c0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 20px; }
+    .container { max-width: 940px; margin: 0 auto; }
+    header {
+      background: linear-gradient(135deg, #1565c0, #0d47a1);
+      color: white; padding: 28px 32px; border-radius: 16px; margin-bottom: 28px;
+      box-shadow: 0 8px 24px rgba(21,101,192,0.3);
+    }
+    header h1 { font-size: 1.35rem; font-weight: 700; margin-bottom: 6px; }
+    header p { opacity: 0.95; font-size: 0.95rem; }
+    .badge { display: inline-block; background: rgba(255,255,255,0.25); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; margin-bottom: 10px; }
+    .exercise {
+      background: var(--card); border-radius: 14px; padding: 28px; margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06); border: 1px solid var(--border);
+    }
+    .exercise h2 {
+      font-size: 1.1rem; color: var(--primary-dark); margin-bottom: 8px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .exercise h2 .num {
+      background: var(--primary); color: white; width: 32px; height: 32px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; font-size: 0.95rem; flex-shrink: 0;
+    }
+    .instruction { color: var(--muted); font-size: 0.95rem; margin-bottom: 16px; }
+    .word-box { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .word-tag {
+      background: #e3f2fd; color: var(--primary-dark); padding: 5px 12px; border-radius: 20px;
+      font-size: 0.88rem; font-weight: 500; border: 1px solid #90caf9;
+    }
+    .sentence { margin-bottom: 12px; font-size: 0.98rem; line-height: 1.7; }
+    .q-block {
+      background: #e3f2fd; border-radius: 10px; padding: 12px 14px; margin-bottom: 12px;
+      border-left: 4px solid var(--primary);
+    }
+    .q-block .q-text { font-weight: 600; margin-bottom: 8px; font-size: 0.95rem; }
+    .options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .options label {
+      display: flex; align-items: center; gap: 6px; background: white;
+      border: 2px solid #90caf9; border-radius: 8px; padding: 6px 12px; cursor: pointer; font-size: 0.88rem;
+    }
+    .options label:hover { border-color: var(--primary); }
+    .options input { accent-color: var(--primary); }
+    .options label.correct { border-color: var(--success); background: #e8f5e9; }
+    .options label.wrong { border-color: var(--error); background: #ffebee; }
+    select {
+      font-family: inherit; font-size: 0.9rem; padding: 5px 8px;
+      border: 2px solid #90caf9; border-radius: 8px; background: white; min-width: 130px;
+    }
+    select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(21,101,192,0.15); }
+    select.correct { border-color: var(--success); background: #e8f5e9; }
+    select.wrong { border-color: var(--error); background: #ffebee; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+    button {
+      font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 10px 22px;
+      border: none; border-radius: 10px; cursor: pointer;
+    }
+    .btn-check { background: var(--primary); color: white; box-shadow: 0 4px 12px rgba(21,101,192,0.3); }
+    .btn-check:hover { background: var(--primary-dark); }
+    .btn-reset { background: #bbdefb; color: var(--muted); }
+    .btn-reset:hover { background: #90caf9; }
+    .btn-total {
+      background: linear-gradient(135deg, #2e7d32, #1b5e20); color: white;
+      font-size: 1.05rem; padding: 14px 28px; box-shadow: 0 4px 16px rgba(46,125,50,0.35);
+    }
+    .feedback { margin-top: 14px; padding: 12px 16px; border-radius: 10px; font-weight: 500; display: none; }
+    .feedback.show { display: block; }
+    .feedback.success { background: #e8f5e9; color: var(--success); border: 1px solid #a5d6a7; }
+    .feedback.error { background: #ffebee; color: var(--error); border: 1px solid #ef9a9a; }
+    .score { font-size: 1.1rem; font-weight: 700; }
+    .total-block {
+      background: var(--card); border-radius: 14px; padding: 32px; margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06); border: 2px solid var(--primary); text-align: center;
+    }
+    .total-block h2 { font-size: 1.3rem; color: var(--primary-dark); margin-bottom: 8px; }
+    .total-block .hint { color: var(--muted); font-size: 0.95rem; margin-bottom: 20px; }
+    .total-score-display { display: none; margin-top: 20px; padding: 24px; border-radius: 12px; font-size: 1.15rem; }
+    .total-score-display.show { display: block; }
+    .total-score-display.good { background: #e8f5e9; border: 2px solid #a5d6a7; color: var(--success); }
+    .total-score-display.mid { background: #fff8e1; border: 2px solid #ffe082; color: #f57f17; }
+    .total-score-display.bad { background: #ffebee; border: 2px solid #ef9a9a; color: var(--error); }
+    .big-score { font-size: 2.4rem; font-weight: 800; margin: 8px 0 4px; }
+    .breakdown { margin-top: 16px; font-size: 0.95rem; text-align: left; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .breakdown div { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px dashed rgba(0,0,0,0.1); }
+    footer { text-align: center; color: var(--muted); font-size: 0.85rem; margin-top: 10px; padding-bottom: 30px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">OET B1-work-l · 36–37</div>
+      <h1>Jobs · Time words · Prepositions · Phrasal verbs</h1>
+      <p>Looking for a job · already/yet/still · prepositions · give in/up/back…</p>
+    </header>
+
+    <!-- EX 1 Job vocabulary -->
+    <div class="exercise" id="ex1">
+      <h2><span class="num">1</span> Looking for a job / professions / employment</h2>
+      <p class="instruction">Оберіть правильне слово з рамки. <strong>(11 балів)</strong></p>
+      <div class="word-box">
+        <span class="word-tag">shifts</span><span class="word-tag">covering</span><span class="word-tag">gain</span>
+        <span class="word-tag">apply for</span><span class="word-tag">quit</span><span class="word-tag">computing</span>
+        <span class="word-tag">charge</span><span class="word-tag">application</span><span class="word-tag">references</span>
+        <span class="word-tag">employers</span><span class="word-tag">training</span>
+      </div>
+      <div class="sentence">1. I want to
+        <select id="a1"><option value="">—</option><option value="apply for">apply for</option><option value="quit">quit</option><option value="gain">gain</option><option value="charge">charge</option></select>
+        a job in the local bakery because I love making bread.
+      </div>
+      <div class="sentence">2. Before the interview, you will need to complete an
+        <select id="a2"><option value="">—</option><option value="application">application</option><option value="training">training</option><option value="covering">covering</option><option value="references">references</option></select>
+        form with your details.
+      </div>
+      <div class="sentence">3. It is important to write a good
+        <select id="a3"><option value="">—</option><option value="covering">covering</option><option value="application">application</option><option value="training">training</option><option value="charge">charge</option></select>
+        letter to introduce yourself to the employer.
+      </div>
+      <div class="sentence">4. Many hospitals ask their staff to work
+        <select id="a4"><option value="">—</option><option value="shifts">shifts</option><option value="training">training</option><option value="computing">computing</option><option value="charge">charge</option></select>,
+        including nights and weekends.
+      </div>
+      <div class="sentence">5. Working as a volunteer can help you
+        <select id="a5"><option value="">—</option><option value="gain">gain</option><option value="quit">quit</option><option value="apply for">apply for</option><option value="charge">charge</option></select>
+        experience in a professional setting.
+      </div>
+      <div class="sentence">6. Some positions require you to have a special
+        <select id="a6"><option value="">—</option><option value="training">training</option><option value="application">application</option><option value="covering">covering</option><option value="shifts">shifts</option></select>
+        to operate certain equipment safely.
+      </div>
+      <div class="sentence">7. The manager will be in
+        <select id="a7"><option value="">—</option><option value="charge">charge</option><option value="shifts">shifts</option><option value="training">training</option><option value="gain">gain</option></select>
+        of the new project to ensure its success.
+      </div>
+      <div class="sentence">8. In today’s world, having strong
+        <select id="a8"><option value="">—</option><option value="computing">computing</option><option value="training">training</option><option value="covering">covering</option><option value="shifts">shifts</option></select>
+        skills can open many doors for you.
+      </div>
+      <div class="sentence">9. After three years, I decided to
+        <select id="a9"><option value="">—</option><option value="quit">quit</option><option value="apply for">apply for</option><option value="gain">gain</option><option value="charge">charge</option></select>
+        my job to travel around the world.
+      </div>
+      <div class="sentence">10. You should provide at least two
+        <select id="a10"><option value="">—</option><option value="references">references</option><option value="employers">employers</option><option value="application">application</option><option value="training">training</option></select>
+        from previous employers when applying for a job.
+      </div>
+      <div class="sentence">11.
+        <select id="a11"><option value="">—</option><option value="Employers">Employers</option><option value="References">References</option><option value="Shifts">Shifts</option><option value="Training">Training</option></select>
+        are often interested in what skills you can bring to their company.
+      </div>
+      <div class="btn-row">
+        <button class="btn-check" onclick="checkSel('a', answers.a, 11, 'fb1', 'e1')">Перевірити</button>
+        <button class="btn-reset" onclick="resetSel('a', [1,2,3,4,5,6,7,8,9,10,11], 'fb1', 'e1')">Скинути</button>
+      </div>
+      <div class="feedback" id="fb1"></div>
+    </div>
+
+    <!-- EX 2 already / yet / still / before / ago -->
+    <div class="exercise" id="ex2">
+      <h2><span class="num">2</span> Choose the correct option (already / yet / still…)</h2>
+      <p class="instruction">Оберіть правильне слово. <strong>(14 балів)</strong></p>
+      <div class="sentence">1. I haven’t finished the washing-up
+        <select id="b1"><option value="">—</option><option value="yet">yet</option><option value="already">already</option></select>.
+      </div>
+      <div class="sentence">2. I don’t think I’ve ever met her
+        <select id="b2"><option value="">—</option><option value="before">before</option><option value="yet">yet</option></select>.
+      </div>
+      <div class="sentence">3. He’s
+        <select id="b3"><option value="">—</option><option value="still">still</option><option value="yet">yet</option></select>
+        got a good memory despite his age.
+      </div>
+      <div class="sentence">4. I used to live here six years
+        <select id="b4"><option value="">—</option><option value="ago">ago</option><option value="before">before</option></select>.
+      </div>
+      <div class="sentence">5. He’s lived in Rome all his life and he
+        <select id="b5"><option value="">—</option><option value="still">still</option><option value="yet">yet</option></select>
+        lives there.
+      </div>
+      <div class="sentence">6. I’ve
+        <select id="b6"><option value="">—</option><option value="already">already</option><option value="before">before</option></select>
+        read this book. It’s really good.
+      </div>
+      <div class="sentence">7. The last time I fed the goldfish was two days
+        <select id="b7"><option value="">—</option><option value="ago">ago</option><option value="before">before</option></select>.
+      </div>
+      <div class="sentence">8. I can’t believe I’ve been here nearly a year
+        <select id="b8"><option value="">—</option><option value="already">already</option><option value="yet">yet</option></select>.
+      </div>
+      <div class="sentence">9. I’m afraid the plumber hasn’t arrived
+        <select id="b9"><option value="">—</option><option value="yet">yet</option><option value="still">still</option></select>.
+      </div>
+      <div class="sentence">10. He can
+        <select id="b10"><option value="">—</option><option value="already">already</option><option value="still">still</option></select>
+        speak and he’s only one year old.
+      </div>
+      <div class="sentence">11. He has
+        <select id="b11"><option value="">—</option><option value="just">just</option><option value="still">still</option></select>
+        left the house.
+      </div>
+      <div class="sentence">12. Clean up that mess
+        <select id="b12"><option value="">—</option><option value="before">before</option><option value="already">already</option></select>
+        your father sees it.
+      </div>
+      <div class="sentence">13. We
+        <select id="b13"><option value="">—</option><option value="still">still</option><option value="yet">yet</option></select>
+        haven’t called Jasmine to see how she is.
+      </div>
+      <div class="sentence">14. He came in
+        <select id="b14"><option value="">—</option><option value="just">just</option><option value="already">already</option></select>
+        now.
+      </div>
+      <div class="btn-row">
+        <button class="btn-check" onclick="checkSel('b', answers.b, 14, 'fb2', 'e2')">Перевірити</button>
+        <button class="btn-reset" onclick="resetSel('b', [1,2,3,4,5,6,7,8,9,10,11,12,13,14], 'fb2', 'e2')">Скинути</button>
+      </div>
+      <div class="feedback" id="fb2"></div>
+    </div>
+
+    <!-- EX 3 NMT Toucan -->
+    <div class="exercise" id="ex3">
+      <h2><span class="num">3</span> NMT Task – The Beak of the Toucan</h2>
+      <p class="instruction">Оберіть правильну відповідь A–D. <strong>(5 балів)</strong></p>
+      <div class="q-block" data-q="c33">
+        <div class="q-text">33. Why does the toucan ___ such an enormous beak?</div>
+        <div class="options">
+          <label><input type="radio" name="c33" value="A"> A) has</label>
+          <label><input type="radio" name="c33" value="B"> B) had</label>
+          <label><input type="radio" name="c33" value="C"> C) having</label>
+          <label><input type="radio" name="c33" value="D"> D) have</label>
+        </div>
+      </div>
+      <div class="q-block" data-q="c34">
+        <div class="q-text">34. …it uses it ___ body temperature.</div>
+        <div class="options">
+          <label><input type="radio" name="c34" value="A"> A) regulate</label>
+          <label><input type="radio" name="c34" value="B"> B) to regulate</label>
+          <label><input type="radio" name="c34" value="C"> C) regulated</label>
+          <label><input type="radio" name="c34" value="D"> D) regulates</label>
+        </div>
+      </div>
+      <div class="q-block" data-q="c35">
+        <div class="q-text">35. Infrared measurement ___ just before sleep shows…</div>
+        <div class="options">
+          <label><input type="radio" name="c35" value="A"> A) taken</label>
+          <label><input type="radio" name="c35" value="B"> B) take</label>
+          <label><input type="radio" name="c35" value="C"> C) to take</label>
+          <label><input type="radio" name="c35" value="D"> D) taking</label>
+        </div>
+      </div>
+      <div class="q-block" data-q="c36">
+        <div class="q-text">36. …which can grow to ___ of its body size…</div>
+        <div class="options">
+          <label><input type="radio" name="c36" value="A"> A) third</label>
+          <label><input type="radio" name="c36" value="B"> B) a three</label>
+          <label><input type="radio" name="c36" value="C"> C) a third</label>
+          <label><input type="radio" name="c36" value="D"> D) three</label>
+        </div>
+      </div>
+      <div class="q-block" data-q="c37">
+        <div class="q-text">37. …gets hotter, ___ the bird uses it in the pre-sleep cooling process.</div>
+        <div class="options">
+          <label><input type="radio" name="c37" value="A"> A) suggested</label>
+          <label><input type="radio" name="c37" value="B"> B) suggesting</label>
+          <label><input type="radio" name="c37" value="C"> C) suggest</label>
+          <label><input type="radio" name="c37" value="D"> D) to suggest</label>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn-check" onclick="checkRadio('c', answers.c, 5, 'fb3', 'e3')">Перевірити</button>
+        <button class="btn-reset" onclick="resetRadio('c', [33,34,35,36,37], 'fb3', 'e3')">Скинути</button>
+      </div>
+      <div class="feedback" id="fb3"></div>
+    </div>
+
+    <!-- EX 4 Prepositions -->
+    <div class="exercise" id="ex4">
+      <h2><span class="num">4</span> Prepositions</h2>
+      <p class="instruction">Оберіть правильний прийменник. <strong>(12 балів)</strong></p>
+      <div class="sentence">1. She apologized
+        <select id="d1"><option value="">—</option><option value="for">for</option><option value="of">of</option><option value="-">— (nothing)</option><option value="off">off</option></select>
+        arriving late.
+      </div>
+      <div class="sentence">2. What do you think
+        <select id="d2"><option value="">—</option><option value="about">about</option><option value="on">on</option><option value="-">— (nothing)</option><option value="at">at</option></select>
+        this?
+      </div>
+      <div class="sentence">3. Will you stop laughing
+        <select id="d3"><option value="">—</option><option value="at">at</option><option value="on">on</option><option value="to">to</option><option value="of">of</option></select>
+        me!
+      </div>
+      <div class="sentence">4. I find it difficult to disagree
+        <select id="d4"><option value="">—</option><option value="with">with</option><option value="about">about</option><option value="on">on</option><option value="in">in</option></select>
+        you.
+      </div>
+      <div class="sentence">5. They arrived
+        <select id="d5"><option value="">—</option><option value="at">at</option><option value="to">to</option><option value="on">on</option><option value="-">— (nothing)</option></select>
+        the airport just in time.
+      </div>
+      <div class="sentence">6. I don’t really agree
+        <select id="d6"><option value="">—</option><option value="with">with</option><option value="from">from</option><option value="on">on</option><option value="of">of</option></select>
+        you.
+      </div>
+      <div class="sentence">7. I’ve forgotten
+        <select id="d7"><option value="">—</option><option value="about">about</option><option value="with">with</option><option value="on">on</option><option value="of">of</option></select>
+        my mum’s birthday party!
+      </div>
+      <div class="sentence">8. This bag doesn’t belong
+        <select id="d8"><option value="">—</option><option value="to">to</option><option value="of">of</option><option value="for">for</option><option value="with">with</option></select>
+        you.
+      </div>
+      <div class="sentence">9. She loves listening
+        <select id="d9"><option value="">—</option><option value="to">to</option><option value="-">— (nothing)</option><option value="in">in</option><option value="at">at</option></select>
+        music in the evening.
+      </div>
+      <div class="sentence">10. Jack can always rely
+        <select id="d10"><option value="">—</option><option value="on">on</option><option value="in">in</option><option value="at">at</option><option value="of">of</option></select>
+        his best friend.
+      </div>
+      <div class="sentence">11. I’ve always been interested
+        <select id="d11"><option value="">—</option><option value="in">in</option><option value="-">— (nothing)</option><option value="at">at</option><option value="on">on</option></select>
+        music.
+      </div>
+      <div class="sentence">12. The writer suffered
+        <select id="d12"><option value="">—</option><option value="from">from</option><option value="at">at</option><option value="in">in</option><option value="for">for</option></select>
+        ill health for most of his life.
+      </div>
+      <div class="btn-row">
+        <button class="btn-check" onclick="checkSel('d', answers.d, 12, 'fb4', 'e4')">Перевірити</button>
+        <button class="btn-reset" onclick="resetSel('d', [1,2,3,4,5,6,7,8,9,10,11,12], 'fb4', 'e4')">Скинути</button>
+      </div>
+      <div class="feedback" id="fb4"></div>
+    </div>
+
+    <!-- EX 5 Phrasal verbs give -->
+    <div class="exercise" id="ex5">
+      <h2><span class="num">5</span> Phrasal verbs with give</h2>
+      <p class="instruction">Оберіть правильний phrasal verb. <strong>(7 балів)</strong></p>
+      <div class="word-box">
+        <span class="word-tag">give in</span><span class="word-tag">give up</span><span class="word-tag">give back</span>
+        <span class="word-tag">give away</span><span class="word-tag">give off</span>
+      </div>
+      <div class="sentence">1. She was tired of arguing and finally decided to
+        <select id="e1"><option value="">—</option><option value="give in">give in</option><option value="give up">give up</option><option value="give back">give back</option><option value="give away">give away</option></select>
+        and agreed with him.
+      </div>
+      <div class="sentence">2. If you don’t understand the math problem, don’t
+        <select id="e2"><option value="">—</option><option value="give up">give up</option><option value="give in">give in</option><option value="give away">give away</option><option value="give off">give off</option></select>
+        – keep trying!
+      </div>
+      <div class="sentence">3. When you borrow something, it’s essential to
+        <select id="e3"><option value="">—</option><option value="give back">give back</option><option value="give away">give away</option><option value="give up">give up</option><option value="give in">give in</option></select>
+        it on time.
+      </div>
+      <div class="sentence">4. They are going to
+        <select id="e4"><option value="">—</option><option value="give away">give away</option><option value="give back">give back</option><option value="give up">give up</option><option value="give off">give off</option></select>
+        free books at the event.
+      </div>
+      <div class="sentence">5. The old fish in the fridge is starting to
+        <select id="e5"><option value="">—</option><option value="give off">give off</option><option value="give away">give away</option><option value="give up">give up</option><option value="give in">give in</option></select>
+        a bad smell.
+      </div>
+      <div class="sentence">6. The candle is
+        <select id="e6"><option value="">—</option><option value="giving off">giving off</option><option value="giving away">giving away</option><option value="giving up">giving up</option><option value="giving in">giving in</option></select>
+        a pleasant vanilla scent.
+      </div>
+      <div class="sentence">7. She won the lottery but decided to
+        <select id="e7"><option value="">—</option><option value="give away">give away</option><option value="give back">give back</option><option value="give up">give up</option><option value="give off">give off</option></select>
+        most of the money to charity.
+      </div>
+      <div class="btn-row">
+        <button class="btn-check" onclick="checkSel('e', answers.e, 7, 'fb5', 'e5')">Перевірити</button>
+        <button class="btn-reset" onclick="resetSel('e', [1,2,3,4,5,6,7], 'fb5', 'e5')">Скинути</button>
+      </div>
+      <div class="feedback" id="fb5"></div>
+    </div>
+
+    <!-- TOTAL -->
+    <div class="total-block">
+      <h2>📝 Підсумок домашнього завдання</h2>
+      <p class="hint">Спочатку перевірте кожну вправу, потім натисніть кнопку нижче.</p>
+      <button class="btn-total" onclick="calcTotal()">Порахувати загальний бал</button>
+      <div class="total-score-display" id="totalDisplay"></div>
+    </div>
+
+    <footer>
+      OET B1-work-l · 36–37<br>
+      Максимум: <strong>49 балів</strong>
+    </footer>
+  </div>
+
+  <script>
+    const answers = {
+      a: {1:'apply for',2:'application',3:'covering',4:'shifts',5:'gain',6:'training',7:'charge',8:'computing',9:'quit',10:'references',11:'Employers'},
+      b: {1:'yet',2:'before',3:'still',4:'ago',5:'still',6:'already',7:'ago',8:'already',9:'yet',10:'already',11:'just',12:'before',13:'still',14:'just'},
+      c: {33:'A',34:'B',35:'A',36:'C',37:'B'},
+      d: {1:'for',2:'about',3:'at',4:'with',5:'at',6:'with',7:'about',8:'to',9:'to',10:'on',11:'in',12:'from'},
+      e: {1:'give in',2:'give up',3:'give back',4:'give away',5:'give off',6:'giving off',7:'give away'}
+    };
+    const lastScores = {e1:null,e2:null,e3:null,e4:null,e5:null};
+
+    function showFb(id,c,t){
+      const fb=document.getElementById(id);
+      fb.classList.add('show');
+      if(c===t){fb.className='feedback show success';fb.innerHTML='✅ Чудово! '+c+' / '+t;}
+      else{fb.className='feedback show error';fb.innerHTML='Результат: <span class="score">'+c+' / '+t+'</span>. Перевірте червоні поля.';}
+    }
+    function clearTotal(){document.getElementById('totalDisplay').className='total-score-display';document.getElementById('totalDisplay').innerHTML='';}
+
+    function checkSel(prefix, ans, total, fbId, key){
+      let c=0;
+      for(const[k,v] of Object.entries(ans)){
+        const el=document.getElementById(prefix+k);
+        if(!el) continue;
+        el.classList.remove('correct','wrong');
+        if(el.value===v){el.classList.add('correct');c++;}
+        else if(el.value) el.classList.add('wrong');
+      }
+      lastScores[key]={correct:c,total:total};
+      showFb(fbId,c,total);
+    }
+    function resetSel(prefix, keys, fbId, key){
+      keys.forEach(function(k){const el=document.getElementById(prefix+k);if(el){el.value='';el.classList.remove('correct','wrong');}});
+      document.getElementById(fbId).className='feedback';lastScores[key]=null;clearTotal();
+    }
+
+    function checkRadio(prefix, ans, total, fbId, key){
+      let c=0;
+      for(const[k,v] of Object.entries(ans)){
+        const radios=document.querySelectorAll('input[name="'+prefix+k+'"]');
+        const labels=document.querySelectorAll('.q-block[data-q="'+prefix+k+'"] label');
+        labels.forEach(function(l){l.classList.remove('correct','wrong');});
+        let sel=null;
+        radios.forEach(function(r){if(r.checked) sel=r.value;});
+        if(sel===v){c++;labels.forEach(function(l){if(l.querySelector('input').value===sel) l.classList.add('correct');});}
+        else if(sel){labels.forEach(function(l){if(l.querySelector('input').value===sel) l.classList.add('wrong');});}
+      }
+      lastScores[key]={correct:c,total:total};
+      showFb(fbId,c,total);
+    }
+    function resetRadio(prefix, keys, fbId, key){
+      keys.forEach(function(k){
+        document.querySelectorAll('input[name="'+prefix+k+'"]').forEach(function(r){r.checked=false;});
+        document.querySelectorAll('.q-block[data-q="'+prefix+k+'"] label').forEach(function(l){l.classList.remove('correct','wrong');});
+      });
+      document.getElementById(fbId).className='feedback';lastScores[key]=null;clearTotal();
+    }
+
+    function calcTotal(){
+      if(!lastScores.e1) checkSel('a',answers.a,11,'fb1','e1');
+      if(!lastScores.e2) checkSel('b',answers.b,14,'fb2','e2');
+      if(!lastScores.e3) checkRadio('c',answers.c,5,'fb3','e3');
+      if(!lastScores.e4) checkSel('d',answers.d,12,'fb4','e4');
+      if(!lastScores.e5) checkSel('e',answers.e,7,'fb5','e5');
+      var s1=lastScores.e1.correct,s2=lastScores.e2.correct,s3=lastScores.e3.correct;
+      var s4=lastScores.e4.correct,s5=lastScores.e5.correct;
+      var total=s1+s2+s3+s4+s5, max=49, pct=Math.round((total/max)*100);
+      var display=document.getElementById('totalDisplay');
+      var cls,msg;
+      if(pct>=80){cls='good';msg='Відмінно! 🎉';}
+      else if(pct>=50){cls='mid';msg='Добре, є над чим попрацювати.';}
+      else{cls='bad';msg='Потрібно повторити матеріал.';}
+      display.className='total-score-display show '+cls;
+      display.innerHTML='<div>'+msg+'</div><div class="big-score">'+total+' / '+max+'</div><div>'+pct+'%</div><div class="breakdown"><div><span>1. Looking for a job</span><span>'+s1+' / 11</span></div><div><span>2. already / yet / still</span><span>'+s2+' / 14</span></div><div><span>3. NMT Toucan</span><span>'+s3+' / 5</span></div><div><span>4. Prepositions</span><span>'+s4+' / 12</span></div><div><span>5. Phrasal verbs give</span><span>'+s5+' / 7</span></div></div>';
+    }
+  </script>
+</body>
+</html>
