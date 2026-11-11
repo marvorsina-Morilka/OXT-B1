@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>unit 5 work lesson 42</title>
+<style>
+:root{--p:#2e7d32;--pd:#1b5e20;--ok:#2e7d32;--err:#c62828;--bg:#e8f5e9;--card:#fff;--bd:#a5d6a7;--t:#1a1a2e;--m:#2e7d32}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--t);line-height:1.55;font-size:16.5px;padding:16px}
+.wrap{max-width:920px;margin:0 auto}
+header{background:linear-gradient(135deg,var(--p),var(--pd));color:#fff;padding:22px 24px;border-radius:14px;margin-bottom:20px;box-shadow:0 6px 18px rgba(46,125,50,.3)}
+header h1{font-size:1.25rem;margin-bottom:4px}
+header p{opacity:.93;font-size:.92rem}
+.badge{display:inline-block;background:rgba(255,255,255,.22);padding:3px 11px;border-radius:16px;font-size:.8rem;margin-bottom:8px}
+.ex{background:var(--card);border-radius:14px;padding:22px;margin-bottom:18px;box-shadow:0 3px 12px rgba(0,0,0,.06);border:1px solid var(--bd)}
+.ex h2{color:var(--pd);font-size:1.08rem;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.ex h2 .n{background:var(--p);color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.inst{color:var(--m);font-size:.9rem;margin-bottom:12px}
+.wb{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+.wt{background:#e8f5e9;color:var(--pd);padding:4px 10px;border-radius:16px;font-size:.82rem;font-weight:500;border:1px solid #a5d6a7}
+.s{margin-bottom:11px;line-height:1.7}
+.txt{background:#f5f5f5;border-radius:10px;padding:14px;margin:10px 0;font-size:.9rem;border:1px solid #ddd;line-height:1.7}
+select{font-family:inherit;font-size:.88rem;padding:5px 8px;border:2px solid var(--bd);border-radius:8px;background:#fff;min-width:140px}
+select:focus{outline:none;border-color:var(--p);box-shadow:0 0 0 3px rgba(46,125,50,.12)}
+select.ok{border-color:var(--ok);background:#e8f5e9}
+select.bad{border-color:var(--err);background:#ffebee}
+.btn-r{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+button{font-family:inherit;font-size:.92rem;font-weight:600;padding:9px 18px;border:none;border-radius:10px;cursor:pointer}
+.bc{background:var(--p);color:#fff}.bc:hover{background:var(--pd)}
+.br{background:#c8e6c9;color:var(--m)}
+.bt{background:linear-gradient(135deg,#ef6c00,#e65100);color:#fff;font-size:1.02rem;padding:13px 26px}
+.fb{margin-top:12px;padding:11px 14px;border-radius:10px;font-weight:500;display:none}
+.fb.show{display:block}
+.fb.ok{background:#e8f5e9;color:var(--ok);border:1px solid #a5d6a7}
+.fb.bad{background:#ffebee;color:var(--err);border:1px solid #ef9a9a}
+.sc{font-size:1.08rem;font-weight:700}
+.tot{background:var(--card);border-radius:14px;padding:28px;margin-bottom:18px;border:2px solid var(--p);text-align:center}
+.tot h2{font-size:1.2rem;color:var(--pd);margin-bottom:6px}
+.tot .h{color:var(--m);font-size:.9rem;margin-bottom:16px}
+.td{display:none;margin-top:16px;padding:20px;border-radius:12px;font-size:1.1rem}
+.td.show{display:block}
+.td.good{background:#e8f5e9;border:2px solid #a5d6a7;color:var(--ok)}
+.td.mid{background:#fff8e1;border:2px solid #ffe082;color:#f57f17}
+.td.bad{background:#ffebee;border:2px solid #ef9a9a;color:var(--err)}
+.big{font-size:2.2rem;font-weight:800;margin:6px 0 2px}
+.bd{margin-top:14px;font-size:.92rem;text-align:left;max-width:480px;margin-left:auto;margin-right:auto}
+.bd div{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dashed rgba(0,0,0,.1)}
+footer{text-align:center;color:var(--m);font-size:.82rem;padding:8px 0 24px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="badge">Unit 5 · Work · Lesson 42</div>
+  <h1>unit 5 work lesson 42</h1>
+  <p>Money · budget · saving · shopping · linking words</p>
+</header>
+
+<!-- EX 1 Smart with Money -->
+<div class="ex" id="ex1">
+  <h2><span class="n">1</span> Smart with Money · choose A–D</h2>
+  <p class="inst">Оберіть правильний варіант. <strong>(5 балів)</strong></p>
+  <div class="txt">
+    Being good with money doesn’t mean you have to be rich. It simply means knowing how to (1)
+    <select id="a1"><option value="">—</option><option value="D">D) manage</option><option value="A">A) use</option><option value="B">B) waste</option><option value="C">C) spend</option></select>
+    it wisely. Many people spend money without thinking and then (2)
+    <select id="a2"><option value="">—</option><option value="B">B) realise</option><option value="A">A) agree</option><option value="C">C) admit</option><option value="D">D) understand</option></select>
+    they don’t have enough for important things.<br><br>
+    A smart way to manage your money is to make a monthly (3)
+    <select id="a3"><option value="">—</option><option value="C">C) budget</option><option value="A">A) receipt</option><option value="B">B) payment</option><option value="D">D) income</option></select>.
+    This helps you see how much you earn and how much you spend. You can also set goals, like saving for a holiday or paying off a (4)
+    <select id="a4"><option value="">—</option><option value="A">A) debt</option><option value="B">B) prize</option><option value="C">C) loan</option><option value="D">D) fine</option></select>.
+    The key is to be honest with yourself and try not to (5)
+    <select id="a5"><option value="">—</option><option value="D">D) spend</option><option value="A">A) give</option><option value="B">B) lose</option><option value="C">C) borrow</option></select>
+    more than you can afford.
+  </div>
+  <div class="btn-r">
+    <button class="bc" onclick="chk('a',Ans.a,5,'f1','e1')">Перевірити</button>
+    <button class="br" onclick="rst('a',[1,2,3,4,5],'f1','e1')">Скинути</button>
+  </div>
+  <div class="fb" id="f1"></div>
+</div>
+
+<!-- EX 2 Vocabulary -->
+<div class="ex" id="ex2">
+  <h2><span class="n">2</span> Vocabulary · Money</h2>
+  <p class="inst">Оберіть слово з рамки. <strong>(17 балів)</strong></p>
+  <div class="wb">
+    <span class="wt">afford</span><span class="wt">borrow</span><span class="wt">by date</span>
+    <span class="wt">charge</span><span class="wt">customer</span><span class="wt">exchange rate</span>
+    <span class="wt">in</span><span class="wt">in the sales</span><span class="wt">local currency</span>
+    <span class="wt">on</span><span class="wt">receipt</span><span class="wt">save</span>
+    <span class="wt">shop around</span><span class="wt">split</span><span class="wt">transfer</span>
+    <span class="wt">trolley</span><span class="wt">withdrawal</span>
+  </div>
+  <div class="s">1. I cannot
+    <select id="b1"><option value="">—</option><option value="afford">afford</option><option value="borrow">borrow</option><option value="save">save</option><option value="charge">charge</option></select>
+    to buy that new phone because it is too expensive.
+  </div>
+  <div class="s">2. Can I
+    <select id="b2"><option value="">—</option><option value="borrow">borrow</option><option value="afford">afford</option><option value="save">save</option><option value="split">split</option></select>
+    your pen for a moment?
+  </div>
+  <div class="s">3. I was lucky to buy my shoes
+    <select id="b3"><option value="">—</option><option value="in the sales">in the sales</option><option value="by date">by date</option><option value="on">on</option><option value="in">in</option></select>
+    last weekend.
+  </div>
+  <div class="s">4. If you want a new bike, you need to
+    <select id="b4"><option value="">—</option><option value="save">save</option><option value="borrow">borrow</option><option value="afford">afford</option><option value="charge">charge</option></select>
+    money each month.
+  </div>
+  <div class="s">5. I like to spend money
+    <select id="b5"><option value="">—</option><option value="on">on</option><option value="in">in</option><option value="by date">by date</option><option value="in the sales">in the sales</option></select>
+    books and travel.
+  </div>
+  <div class="s">6. We can
+    <select id="b6"><option value="">—</option><option value="split">split</option><option value="borrow">borrow</option><option value="save">save</option><option value="charge">charge</option></select>
+    the cost of the taxi ride to save money.
+  </div>
+  <div class="s">7. The bank will
+    <select id="b7"><option value="">—</option><option value="charge">charge</option><option value="save">save</option><option value="afford">afford</option><option value="borrow">borrow</option></select>
+    a fee for international transfers.
+  </div>
+  <div class="s">8. I need to make a
+    <select id="b8"><option value="">—</option><option value="withdrawal">withdrawal</option><option value="receipt">receipt</option><option value="trolley">trolley</option><option value="transfer">transfer</option></select>
+    from my account to buy groceries.
+  </div>
+  <div class="s">9. It’s wise to
+    <select id="b9"><option value="">—</option><option value="shop around">shop around</option><option value="split">split</option><option value="transfer">transfer</option><option value="charge">charge</option></select>
+    before making a big purchase.
+  </div>
+  <div class="s">10. I want to
+    <select id="b10"><option value="">—</option><option value="transfer">transfer</option><option value="borrow">borrow</option><option value="split">split</option><option value="save">save</option></select>
+    money to my friend in another country.
+  </div>
+  <div class="s">11. I need a
+    <select id="b11"><option value="">—</option><option value="trolley">trolley</option><option value="receipt">receipt</option><option value="withdrawal">withdrawal</option><option value="customer">customer</option></select>
+    to carry all the groceries I want to buy.
+  </div>
+  <div class="s">12. Always keep the
+    <select id="b12"><option value="">—</option><option value="receipt">receipt</option><option value="trolley">trolley</option><option value="withdrawal">withdrawal</option><option value="customer">customer</option></select>
+    in case you need to return something.
+  </div>
+  <div class="s">13. I prefer to pay
+    <select id="b13"><option value="">—</option><option value="in">in</option><option value="on">on</option><option value="by date">by date</option><option value="in the sales">in the sales</option></select>
+    cash rather than by card sometimes.
+  </div>
+  <div class="s">14. As a
+    <select id="b14"><option value="">—</option><option value="customer">customer</option><option value="receipt">receipt</option><option value="trolley">trolley</option><option value="withdrawal">withdrawal</option></select>,
+    you should always check the quality of goods.
+  </div>
+  <div class="s">15. This milk has a short use
+    <select id="b15"><option value="">—</option><option value="by date">by date</option><option value="in the sales">in the sales</option><option value="on">on</option><option value="in">in</option></select>,
+    so we must drink it soon.
+  </div>
+  <div class="s">16. The
+    <select id="b16"><option value="">—</option><option value="exchange rate">exchange rate</option><option value="local currency">local currency</option><option value="receipt">receipt</option><option value="trolley">trolley</option></select>
+    can affect how much foreign money we receive.
+  </div>
+  <div class="s">17. In Spain, the
+    <select id="b17"><option value="">—</option><option value="local currency">local currency</option><option value="exchange rate">exchange rate</option><option value="receipt">receipt</option><option value="withdrawal">withdrawal</option></select>
+    is the Euro.
+  </div>
+  <div class="btn-r">
+    <button class="bc" onclick="chk('b',Ans.b,17,'f2','e2')">Перевірити</button>
+    <button class="br" onclick="rst('b',[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],'f2','e2')">Скинути</button>
+  </div>
+  <div class="fb" id="f2"></div>
+</div>
+
+<!-- EX 3 Linking words -->
+<div class="ex" id="ex3">
+  <h2><span class="n">3</span> Linking words</h2>
+  <p class="inst">Оберіть правильне слово. <strong>(8 балів)</strong></p>
+  <div class="wb">
+    <span class="wt">while</span><span class="wt">as well as</span><span class="wt">eventually</span>
+    <span class="wt">before</span><span class="wt">in addition to</span><span class="wt">when</span>
+    <span class="wt">too</span><span class="wt">until</span>
+  </div>
+  <div class="s">1. I’ll wait here
+    <select id="c1"><option value="">—</option><option value="until">until</option><option value="while">while</option><option value="when">when</option><option value="before">before</option></select>
+    you come back.
+  </div>
+  <div class="s">2. She sings
+    <select id="c2"><option value="">—</option><option value="as well as">as well as</option><option value="while">while</option><option value="too">too</option><option value="until">until</option></select>
+    plays the piano.
+  </div>
+  <div class="s">3. We were walking in the park
+    <select id="c3"><option value="">—</option><option value="when">when</option><option value="while">while</option><option value="until">until</option><option value="before">before</option></select>
+    it started to rain.
+  </div>
+  <div class="s">4. It was a long journey, but we
+    <select id="c4"><option value="">—</option><option value="eventually">eventually</option><option value="until">until</option><option value="too">too</option><option value="when">when</option></select>
+    arrived.
+  </div>
+  <div class="s">5. Always wash your hands
+    <select id="c5"><option value="">—</option><option value="before">before</option><option value="until">until</option><option value="when">when</option><option value="while">while</option></select>
+    dinner.
+  </div>
+  <div class="s">6.
+    <select id="c6"><option value="">—</option><option value="In addition to">In addition to</option><option value="As well as">As well as</option><option value="While">While</option><option value="Until">Until</option></select>
+    studying English, he’s also learning French.
+  </div>
+  <div class="s">7. He was reading a book
+    <select id="c7"><option value="">—</option><option value="while">while</option><option value="when">when</option><option value="until">until</option><option value="before">before</option></select>
+    listening to music.
+  </div>
+  <div class="s">8. I want to go to the beach,
+    <select id="c8"><option value="">—</option><option value="too">too</option><option value="while">while</option><option value="until">until</option><option value="when">when</option></select>!
+  </div>
+  <div class="btn-r">
+    <button class="bc" onclick="chk('c',Ans.c,8,'f3','e3')">Перевірити</button>
+    <button class="br" onclick="rst('c',[1,2,3,4,5,6,7,8],'f3','e3')">Скинути</button>
+  </div>
+  <div class="fb" id="f3"></div>
+</div>
+
+<!-- EX 4 Reading -->
+<div class="ex" id="ex4">
+  <h2><span class="n">4</span> Young People and Money Habits</h2>
+  <p class="inst">Оберіть варіант A–H (2 зайві). <strong>(6 балів)</strong></p>
+  <div class="wb">
+    <span class="wt">A) borrow</span><span class="wt">B) confident</span>
+    <span class="wt">C) divide</span><span class="wt">D) track</span>
+    <span class="wt">E) spend</span><span class="wt">F) your expenses</span>
+    <span class="wt">G) ask</span><span class="wt">H) think about</span>
+  </div>
+  <div class="txt">
+    Many young people today are learning more about managing their money. Schools and parents are starting to teach children how to save, budget, and spend wisely. Some students receive pocket money each week and are encouraged to (1)
+    <select id="d1"><option value="">—</option><option value="D">D) track</option><option value="H">H) think about</option><option value="C">C) divide</option><option value="E">E) spend</option></select>
+    what they spend on.<br><br>
+    One popular method is to (2)
+    <select id="d2"><option value="">—</option><option value="C">C) divide</option><option value="D">D) track</option><option value="A">A) borrow</option><option value="E">E) spend</option></select>
+    money into three categories: saving, spending, and giving. This helps teenagers think more carefully about their financial choices.<br><br>
+    However, not all young people are good at saving. A recent study showed that many teens (3)
+    <select id="d3"><option value="">—</option><option value="E">E) spend</option><option value="A">A) borrow</option><option value="C">C) divide</option><option value="D">D) track</option></select>
+    all their money quickly, often on snacks, clothes, or mobile games. Experts suggest using budgeting apps or writing down (4)
+    <select id="d4"><option value="">—</option><option value="F">F) your expenses</option><option value="H">H) think about</option><option value="B">B) confident</option><option value="G">G) ask</option></select>
+    to better understand where money goes.<br><br>
+    Some teenagers also get part-time jobs, which can teach them the value of money and the importance of hard work. Others (5)
+    <select id="d5"><option value="">—</option><option value="A">A) borrow</option><option value="G">G) ask</option><option value="E">E) spend</option><option value="C">C) divide</option></select>
+    money from family or friends when they want to buy something but don’t have enough.<br><br>
+    Learning to manage money at a young age can help people become more independent and (6)
+    <select id="d6"><option value="">—</option><option value="B">B) confident</option><option value="F">F) your expenses</option><option value="H">H) think about</option><option value="G">G) ask</option></select>
+    in the future.
+  </div>
+  <div class="btn-r">
+    <button class="bc" onclick="chk('d',Ans.d,6,'f4','e4')">Перевірити</button>
+    <button class="br" onclick="rst('d',[1,2,3,4,5,6],'f4','e4')">Скинути</button>
+  </div>
+  <div class="fb" id="f4"></div>
+</div>
+
+<!-- TOTAL -->
+<div class="tot">
+  <h2>📝 Підсумок домашнього завдання</h2>
+  <p class="h">Спочатку перевірте кожну вправу, потім натисніть кнопку.</p>
+  <button class="bt" onclick="total()">Порахувати загальний бал</button>
+  <div class="td" id="td"></div>
+</div>
+
+<footer>unit 5 work lesson 42<br>Максимум: <strong>36 балів</strong></footer>
+</div>
+
+<script>
+const Ans = {
+  a:{1:'D',2:'B',3:'C',4:'A',5:'D'},
+  b:{1:'afford',2:'borrow',3:'in the sales',4:'save',5:'on',6:'split',7:'charge',8:'withdrawal',9:'shop around',10:'transfer',11:'trolley',12:'receipt',13:'in',14:'customer',15:'by date',16:'exchange rate',17:'local currency'},
+  c:{1:'until',2:'as well as',3:'when',4:'eventually',5:'before',6:'In addition to',7:'while',8:'too'},
+  d:{1:'D',2:'C',3:'E',4:'F',5:'A',6:'B'}
+};
+const S = {e1:null,e2:null,e3:null,e4:null};
+
+function chk(pre,ans,tot,fid,key){
+  let c=0;
+  for(const[k,v] of Object.entries(ans)){
+    const el=document.getElementById(pre+k);
+    if(!el) continue;
+    el.classList.remove('ok','bad');
+    if(el.value===v){el.classList.add('ok');c++;}
+    else if(el.value) el.classList.add('bad');
+  }
+  S[key]={c,t:tot};
+  const fb=document.getElementById(fid);
+  fb.classList.add('show');
+  if(c===tot){fb.className='fb show ok';fb.innerHTML='✅ Чудово! '+c+' / '+tot;}
+  else{fb.className='fb show bad';fb.innerHTML='Результат: <span class="sc">'+c+' / '+tot+'</span>. Перевірте червоні поля.';}
+}
+function rst(pre,keys,fid,key){
+  keys.forEach(k=>{const el=document.getElementById(pre+k);if(el){el.value='';el.classList.remove('ok','bad');}});
+  document.getElementById(fid).className='fb';S[key]=null;
+  document.getElementById('td').className='td';document.getElementById('td').innerHTML='';
+}
+function total(){
+  if(!S.e1) chk('a',Ans.a,5,'f1','e1');
+  if(!S.e2) chk('b',Ans.b,17,'f2','e2');
+  if(!S.e3) chk('c',Ans.c,8,'f3','e3');
+  if(!S.e4) chk('d',Ans.d,6,'f4','e4');
+  const s1=S.e1.c,s2=S.e2.c,s3=S.e3.c,s4=S.e4.c;
+  const tot=s1+s2+s3+s4, max=36, pct=Math.round(tot/max*100);
+  const box=document.getElementById('td');
+  let cls,msg;
+  if(pct>=80){cls='good';msg='Відмінно! 🎉';}
+  else if(pct>=50){cls='mid';msg='Добре, повторіть money vocabulary.';}
+  else{cls='bad';msg='Потрібно ще потренувати money & linking words.';}
+  box.className='td show '+cls;
+  box.innerHTML='<div>'+msg+'</div><div class="big">'+tot+' / '+max+'</div><div>'+pct+'%</div><div class="bd"><div><span>1. Smart with Money</span><span>'+s1+' / 5</span></div><div><span>2. Vocabulary · Money</span><span>'+s2+' / 17</span></div><div><span>3. Linking words</span><span>'+s3+' / 8</span></div><div><span>4. Young People and Money Habits</span><span>'+s4+' / 6</span></div></div>';
+}
+</script>
+</body>
+</html>

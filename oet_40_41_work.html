@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OET 40-41 work</title>
+<style>
+:root{--p:#1565c0;--pd:#0d47a1;--ok:#2e7d32;--err:#c62828;--bg:#e3f2fd;--card:#fff;--bd:#90caf9;--t:#1a1a2e;--m:#1565c0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--t);line-height:1.55;font-size:16px;padding:16px}
+.wrap{max-width:940px;margin:0 auto}
+header{background:linear-gradient(135deg,var(--p),var(--pd));color:#fff;padding:22px 24px;border-radius:14px;margin-bottom:20px;box-shadow:0 6px 18px rgba(21,101,192,.3)}
+header h1{font-size:1.2rem;margin-bottom:4px}
+header p{opacity:.93;font-size:.92rem}
+.badge{display:inline-block;background:rgba(255,255,255,.22);padding:3px 11px;border-radius:16px;font-size:.8rem;margin-bottom:8px}
+.ex{background:var(--card);border-radius:14px;padding:20px;margin-bottom:16px;box-shadow:0 3px 12px rgba(0,0,0,.06);border:1px solid var(--bd)}
+.ex h2{color:var(--pd);font-size:1.05rem;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.ex h2 .n{background:var(--p);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
+.inst{color:var(--m);font-size:.88rem;margin-bottom:10px}
+.wb{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.wt{background:#e3f2fd;color:var(--pd);padding:3px 10px;border-radius:14px;font-size:.8rem;font-weight:500;border:1px solid #90caf9}
+.s{margin-bottom:10px;line-height:1.65;font-size:.92rem}
+.txt{background:#f5f5f5;border-radius:10px;padding:12px;margin:8px 0;font-size:.88rem;border:1px solid #ddd;line-height:1.7}
+select{font-family:inherit;font-size:.85rem;padding:5px 8px;border:2px solid var(--bd);border-radius:8px;background:#fff;min-width:140px;max-width:100%}
+select:focus{outline:none;border-color:var(--p)}
+select.ok{border-color:var(--ok);background:#e8f5e9}
+select.bad{border-color:var(--err);background:#ffebee}
+.btn-r{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+button{font-family:inherit;font-size:.9rem;font-weight:600;padding:9px 18px;border:none;border-radius:10px;cursor:pointer}
+.bc{background:var(--p);color:#fff}.bc:hover{background:var(--pd)}
+.br{background:#bbdefb;color:var(--m)}
+.bt{background:linear-gradient(135deg,#2e7d32,#1b5e20);color:#fff;font-size:1rem;padding:13px 26px}
+.fb{margin-top:10px;padding:10px 14px;border-radius:10px;font-weight:500;display:none}
+.fb.show{display:block}
+.fb.ok{background:#e8f5e9;color:var(--ok);border:1px solid #a5d6a7}
+.fb.bad{background:#ffebee;color:var(--err);border:1px solid #ef9a9a}
+.sc{font-size:1.05rem;font-weight:700}
+.tot{background:var(--card);border-radius:14px;padding:28px;margin-bottom:18px;border:2px solid var(--p);text-align:center}
+.tot h2{font-size:1.15rem;color:var(--pd);margin-bottom:6px}
+.tot .h{color:var(--m);font-size:.9rem;margin-bottom:16px}
+.td{display:none;margin-top:16px;padding:20px;border-radius:12px;font-size:1.05rem}
+.td.show{display:block}
+.td.good{background:#e8f5e9;border:2px solid #a5d6a7;color:var(--ok)}
+.td.mid{background:#fff8e1;border:2px solid #ffe082;color:#f57f17}
+.td.bad{background:#ffebee;border:2px solid #ef9a9a;color:var(--err)}
+.big{font-size:2.1rem;font-weight:800;margin:6px 0 2px}
+.bd{margin-top:12px;font-size:.88rem;text-align:left;max-width:480px;margin-left:auto;margin-right:auto}
+.bd div{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px dashed rgba(0,0,0,.1)}
+footer{text-align:center;color:var(--m);font-size:.8rem;padding:8px 0 24px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="badge">OET · Work &amp; Money</div>
+  <h1>OET 40-41 work</h1>
+  <p>Jobs · grammar (determiners, perfect) · shopping &amp; money</p>
+</header>
+
+<!-- EX 1 Reading gaps -->
+<div class="ex" id="ex1">
+  <h2><span class="n">1</span> Why Do People Choose Certain Jobs?</h2>
+  <p class="inst">Оберіть опцію A–H для кожного пропуску (2 зайві). <strong>(6 балів)</strong></p>
+  <div class="wb">
+    <span class="wt">A) they want to help others</span>
+    <span class="wt">B) jobs in the medical field are always easy</span>
+    <span class="wt">C) they saw a parent or teacher in that job</span>
+    <span class="wt">D) they enjoy working alone</span>
+    <span class="wt">E) many jobs require strong communication skills</span>
+    <span class="wt">F) it takes many years to become a doctor</span>
+    <span class="wt">G) others choose based on their hobbies</span>
+    <span class="wt">H) some jobs are more popular in different countries</span>
+  </div>
+  <div class="txt">
+    People choose their careers for many different reasons. Some know from an early age what they want to do because (1)
+    <select id="a1"><option value="">—</option><option value="C">C) they saw a parent or teacher in that job</option><option value="A">A) they want to help others</option><option value="G">G) others choose based on their hobbies</option><option value="D">D) they enjoy working alone</option></select>.
+    For example, someone might become a firefighter because their uncle was one.<br>
+    Others make their decision later in life. Sometimes, (2)
+    <select id="a2"><option value="">—</option><option value="G">G) others choose based on their hobbies</option><option value="C">C) they saw a parent or teacher in that job</option><option value="A">A) they want to help others</option><option value="E">E) many jobs require strong communication skills</option></select>,
+    such as someone who loves drawing, becomes a graphic designer.<br>
+    Some people choose a job because (3)
+    <select id="a3"><option value="">—</option><option value="A">A) they want to help others</option><option value="D">D) they enjoy working alone</option><option value="B">B) jobs in the medical field are always easy</option><option value="F">F) it takes many years to become a doctor</option></select>,
+    like becoming a nurse, teacher, or social worker.<br>
+    It’s important to know that (4)
+    <select id="a4"><option value="">—</option><option value="E">E) many jobs require strong communication skills</option><option value="D">D) they enjoy working alone</option><option value="H">H) some jobs are more popular in different countries</option><option value="B">B) jobs in the medical field are always easy</option></select>.
+    Even people in science, engineering, or law must clearly explain ideas and work in teams.<br>
+    Some people prefer quiet environments, so (5)
+    <select id="a5"><option value="">—</option><option value="D">D) they enjoy working alone</option><option value="A">A) they want to help others</option><option value="E">E) many jobs require strong communication skills</option><option value="G">G) others choose based on their hobbies</option></select>.
+    They may work as writers, programmers, or researchers.<br>
+    In any case, it’s useful to learn about different careers because (6)
+    <select id="a6"><option value="">—</option><option value="H">H) some jobs are more popular in different countries</option><option value="F">F) it takes many years to become a doctor</option><option value="B">B) jobs in the medical field are always easy</option><option value="C">C) they saw a parent or teacher in that job</option></select>.
+  </div>
+  <div class="btn-r">
+    <button class="bc" onclick="chk('a',Ans.a,6,'f1','e1')">Перевірити</button>
+    <button class="br" onclick="rst('a',[1,2,3,4,5,6],'f1','e1')">Скинути</button>
+  </div>
+  <div class="fb" id="f1"></div>
+</div>
+
+<!-- EX 2 Match words -->
+<div class="ex" id="ex2">
+  <h2><span class="n">2</span> Match the words to their meanings</h2>
+  <p class="inst">Зіставте слово з визначенням. <strong>(5 балів)</strong></p>
+  <div class="s">1. rewarding →
+    <select id="b1"><option value="">—</option><option value="B">B) something that gives satisfaction</option><option value="A">A) a job or profession</option><option value="C">C) the place and conditions where someone works</option><option value="D">D) talking or sharing information</option><option value="E">E) something that stops an activity</option></select>
+  </div>
+  <div class="s">2. environment →
+    <select id="b2"><option value="">—</option><option value="C">C) the place and conditions where someone works</option><option value="A">A) a job or profession</option><option value="B">B) something that gives satisfaction</option><option value="D">D) talking or sharing information</option><option value="E">E) something that stops an activity</option></select>
+  </div>
+  <div class="s">3. career →
+    <select id="b3"><option value="">—</option><option value="A">A) a job or profession</option><option value="B">B) something that gives satisfaction</option><option value="C">C) the place and conditions where someone works</option><option value="D">D) talking or sharing information</option><option value="E">E) something that stops an activity</option></select>
+  </div>
+  <div class="s">4. interruption →
+    <select id="b4"><option value="">—</option><option value="E">E) something that stops an activity</option><option value="A">A) a job or profession</option><option value="B">B) something that gives satisfaction</option><option value="C">C) the place and conditions where someone works</option><option value="D">D) talking or sharing information</option></select>
+  </div>
+  <div class="s">5. communication →
+    <select id="b5"><option value="">—</option><option value="D">D) talking or sharing information</option><option value="A">A) a job or profession</option><option value="B">B) something that gives satisfaction</option><option value="C">C) the place and conditions where someone works</option><option value="E">E) something that stops an activity</option></select>
+  </div>
+  <div class="btn-r">
+    <button class="bc" onclick="chk('b',Ans.b,5,'f2','e2')">Перевірити</button>
+    <button class="br" onclick="rst('b',[1,2,3,4,5],'f2','e2')">Скинути</button>
+  </div>
+  <div class="fb" id="f2"></div>
+</div>
+
+<!-- EX 3 Grammar revision -->
+<div class="ex" id="ex3">
+  <h2><span class="n">3</span> Grammar · both / either / neither / each / every / other + perfect</h2>
+  <p class="inst">Оберіть правильний варіант. <strong>(12 балів)</strong></p>
+  <div class="s">1. Jessie, hurry up – dinner’s on the table!
+    <select id="c1"><option value="">—</option><option value="A">A) I’ve called</option><option value="B">B) I called</option><option value="C">C) I’ve been calling</option><option value="D">D) I call</option></select>
+  </div>
+  <div class="s">2. Liz and Ben’s family
+    <select id="c2"><option value="">—</option><option value="A">A) enjoys</option><option value="B">B) is enjoying</option><option value="C">C) has enjoyed</option><option value="D">D) has been enjoying</option></select>
+  </div>
+  <div class="s">3. For the last few weeks, Ben
+    <select id="c3"><option value="">—</option><option value="A">A) has been caring</option><option value="B">B) been caring</option><option value="C">C) have cared</option><option value="D">D) cares</option></select>
+    for a baby deer.
+  </div>
+  <div class="s">4. Have you
+    <select id="c4"><option value="">—</option><option value="A">A) never</option><option value="B">B) yet</option><option value="C">C) still</option><option value="D">D) ever</option></select>
+    dreamt of seeing polar bears in the Arctic?
+  </div>
+  <div class="s">5. Rosanna Garcia from Indiana, USA,
+    <select id="c5"><option value="">—</option><option value="A">A) has just given</option><option value="B">B) have just given</option><option value="C">C) just has given</option><option value="D">D) has been just giving</option></select>
+    our reporters an update.
+  </div>
+  <div class="s">6. The time is a bit crazy, I know, but we’re
+    <select id="c6"><option value="">—</option><option value="A">A) both</option><option value="B">B) either</option><option value="C">C) neither</option><option value="D">D) each</option></select>
+    busy with school and other stuff.
+  </div>
+  <div class="s">7. My cousins live in a city and … they do not even know their neighbours, whereas everyone in my village knows
+    <select id="c7"><option value="">—</option><option value="A">A) every</option><option value="B">B) each</option><option value="C">C) both</option><option value="D">D) another</option></select>
+    other.
+  </div>
+  <div class="s">8. Commuters and
+    <select id="c8"><option value="">—</option><option value="A">A) either</option><option value="B">B) others</option><option value="C">C) another</option><option value="D">D) other</option></select>
+    travellers were surprised when they saw all these cows.
+  </div>
+  <div class="s">9. “You can
+    <select id="c9"><option value="">—</option><option value="A">A) the others</option><option value="B">B) other</option><option value="C">C) neither</option><option value="D">D) either</option></select>
+    win nor lose if you don’t run the race.”
+  </div>
+  <div class="s">10. You probably haven’t heard of the boxfish, and I hadn’t
+    <select id="c10"><option value="">—</option><option value="A">A) neither</option><option value="B">B) either</option><option value="C">C) both</option><option value="D">D) both of</option></select>.
+  </div>
+  <div class="s">11. He told us interesting facts about
+    <select id="c11"><option value="">—</option><option value="A">A) each</option><option value="B">B) every</option><option value="C">C) few</option><option value="D">D) little</option></select>
+    of the animals.
+  </div>
+  <div class="s">12.
+    <select id="c12"><option value="">—</option><option value="A">A) Every</option><option value="B">B) None</option><option value="C">C) Either</option><option value="D">D) Neither</option></select>
+    of us enjoyed the film.
+  </div>
+  <div class="btn-r">
+    <button class="bc" onclick="chk('c',Ans.c,12,'f3','e3')">Перевірити</button>
+    <button class="br" onclick="rst('c',[1,2,3,4,5,6,7,8,9,10,11,12],'f3','e3')">Скинути</button>
+  </div>
+  <div class="fb" id="f3"></div>
+</div>
+
+<!-- EX 4 Shopping MCQ -->
+<div class="ex" id="ex4">
+  <h2><span class="n">4</span> Shopping &amp; money · choose A / B / C</h2>
+  <p class="inst">Оберіть правильний варіант. <strong>(12 балів)</strong></p>
+  <div class="s">1. I always keep the
+    <select id="d1"><option value="">—</option><option value="B">B) receipt</option><option value="A">A) checkout</option><option value="C">C) charge</option></select>
+    in case I need to return something.
+  </div>
+  <div class="s">2. My friend will
+    <select id="d2"><option value="">—</option><option value="C">C) lend</option><option value="A">A) borrow</option><option value="B">B) afford</option></select>
+    me his bike for the weekend.
+  </div>
+  <div class="s">3. They
+    <select id="d3"><option value="">—</option><option value="B">B) charge</option><option value="A">A) split</option><option value="C">C) give</option></select>
+    too much for delivery!
+  </div>
+  <div class="s">4. Before I buy a phone, I like to
+    <select id="d4"><option value="">—</option><option value="A">A) shop around</option><option value="B">B) transfer</option><option value="C">C) take out</option></select>
+    to compare prices.
+  </div>
+  <div class="s">5. We decided to
+    <select id="d5"><option value="">—</option><option value="B">B) split</option><option value="A">A) exchange</option><option value="C">C) lend</option></select>
+    the bill between the five of us.
+  </div>
+  <div class="s">6. I forgot my wallet, so I had to
+    <select id="d6"><option value="">—</option><option value="B">B) borrow</option><option value="A">A) lend</option><option value="C">C) give</option></select>
+    some money from my sister.
+  </div>
+  <div class="s">7. We paid the electricity and water
+    <select id="d7"><option value="">—</option><option value="B">B) bills</option><option value="A">A) receipts</option><option value="C">C) trolleys</option></select>
+    yesterday.
+  </div>
+  <div class="s">8. I like to pay
+    <select id="d8"><option value="">—</option><option value="A">A) in</option><option value="B">B) on</option><option value="C">C) by</option></select>
+    cash when I go to small shops.
+  </div>
+  <div class="s">9. This item is too expensive. I can’t
+    <select id="d9"><option value="">—</option><option value="B">B) afford</option><option value="A">A) lend</option><option value="C">C) shop around</option></select>
+    it right now.
+  </div>
+  <div class="s">10. She bought too many things and her
+    <select id="d10"><option value="">—</option><option value="C">C) trolley</option><option value="A">A) checkout</option><option value="B">B) currency</option></select>
+    was full.
+  </div>
+  <div class="s">11. If you want the best deal, you should
+    <select id="d11"><option value="">—</option><option value="B">B) shop around</option><option value="A">A) split</option><option value="C">C) lend</option></select>
+    before buying.
+  </div>
+  <div class="s">12. I paid
+    <select id="d12"><option value="">—</option><option value="C">C) by</option><option value="A">A) on</option><option value="B">B) in</option></select>
+    credit card because I didn’t have any cash.
+  </div>
+  <div class="btn-r">
+    <button class="bc" onclick="chk('d',Ans.d,12,'f4','e4')">Перевірити</button>
+    <button class="br" onclick="rst('d',[1,2,3,4,5,6,7,8,9,10,11,12],'f4','e4')">Скинути</button>
+  </div>
+  <div class="fb" id="f4"></div>
+</div>
+
+<!-- EX 5 Gap fill money box -->
+<div class="ex" id="ex5">
+  <h2><span class="n">5</span> Complete with words from the box</h2>
+  <p class="inst">Оберіть слово з рамки. <strong>(12 балів)</strong></p>
+  <div class="wb">
+    <span class="wt">afford</span><span class="wt">borrow</span><span class="wt">cash</span><span class="wt">charge</span>
+    <span class="wt">currency</span><span class="wt">lend</span><span class="wt">receipt</span><span class="wt">shop around</span>
+    <span class="wt">split</span><span class="wt">take out</span><span class="wt">transfer</span><span class="wt">trolley</span>
+  </div>
+  <div class="s">1. I can’t
+    <select id="e1"><option value="">—</option><option value="afford">afford</option><option value="borrow">borrow</option><option value="lend">lend</option><option value="charge">charge</option></select>
+    to go on holiday this year.
+  </div>
+  <div class="s">2. Can I
+    <select id="e2"><option value="">—</option><option value="borrow">borrow</option><option value="lend">lend</option><option value="afford">afford</option><option value="charge">charge</option></select>
+    your pen for a moment?
+  </div>
+  <div class="s">3. I will
+    <select id="e3"><option value="">—</option><option value="lend">lend</option><option value="borrow">borrow</option><option value="afford">afford</option><option value="split">split</option></select>
+    you my book if you promise to return it.
+  </div>
+  <div class="s">4. It’s wise to
+    <select id="e4"><option value="">—</option><option value="shop around">shop around</option><option value="split">split</option><option value="transfer">transfer</option><option value="charge">charge</option></select>
+    for the best deal before buying.
+  </div>
+  <div class="s">5. Some banks
+    <select id="e5"><option value="">—</option><option value="charge">charge</option><option value="afford">afford</option><option value="lend">lend</option><option value="borrow">borrow</option></select>
+    a fee for using their services.
+  </div>
+  <div class="s">6. I need to get a
+    <select id="e6"><option value="">—</option><option value="trolley">trolley</option><option value="receipt">receipt</option><option value="currency">currency</option><option value="cash">cash</option></select>
+    for all the groceries I want to buy.
+  </div>
+  <div class="s">7. I need to
+    <select id="e7"><option value="">—</option><option value="take out">take out</option><option value="transfer">transfer</option><option value="split">split</option><option value="charge">charge</option></select>
+    a withdrawal from my bank account.
+  </div>
+  <div class="s">8. It’s easy to
+    <select id="e8"><option value="">—</option><option value="transfer">transfer</option><option value="take out">take out</option><option value="borrow">borrow</option><option value="lend">lend</option></select>
+    money to friends using an app.
+  </div>
+  <div class="s">9. We can
+    <select id="e9"><option value="">—</option><option value="split">split</option><option value="charge">charge</option><option value="afford">afford</option><option value="borrow">borrow</option></select>
+    the cost of the dinner, if you like.
+  </div>
+  <div class="s">10. Do you have
+    <select id="e10"><option value="">—</option><option value="cash">cash</option><option value="currency">currency</option><option value="receipt">receipt</option><option value="trolley">trolley</option></select>
+    on you for the bus fare?
+  </div>
+  <div class="s">11. You should always have some local
+    <select id="e11"><option value="">—</option><option value="currency">currency</option><option value="cash">cash</option><option value="receipt">receipt</option><option value="trolley">trolley</option></select>
+    when visiting a new country.
+  </div>
+  <div class="s">12. Keep your
+    <select id="e12"><option value="">—</option><option value="receipt">receipt</option><option value="trolley">trolley</option><option value="currency">currency</option><option value="cash">cash</option></select>
+    in case you want to return something.
+  </div>
+  <div class="btn-r">
+    <button class="bc" onclick="chk('e',Ans.e,12,'f5','e5')">Перевірити</button>
+    <button class="br" onclick="rst('e',[1,2,3,4,5,6,7,8,9,10,11,12],'f5','e5')">Скинути</button>
+  </div>
+  <div class="fb" id="f5"></div>
+</div>
+
+<!-- TOTAL -->
+<div class="tot">
+  <h2>📝 Підсумок</h2>
+  <p class="h">Спочатку перевірте кожну вправу, потім натисніть кнопку.</p>
+  <button class="bt" onclick="total()">Порахувати загальний бал</button>
+  <div class="td" id="td"></div>
+</div>
+
+<footer>OET 40-41 work<br>Максимум: <strong>47 балів</strong></footer>
+</div>
+
+<script>
+const Ans = {
+  a:{1:'C',2:'G',3:'A',4:'E',5:'D',6:'H'},
+  b:{1:'B',2:'C',3:'A',4:'E',5:'D'},
+  c:{1:'C',2:'A',3:'A',4:'D',5:'A',6:'A',7:'B',8:'D',9:'C',10:'B',11:'A',12:'B'},
+  d:{1:'B',2:'C',3:'B',4:'A',5:'B',6:'B',7:'B',8:'A',9:'B',10:'C',11:'B',12:'C'},
+  e:{1:'afford',2:'borrow',3:'lend',4:'shop around',5:'charge',6:'trolley',7:'take out',8:'transfer',9:'split',10:'cash',11:'currency',12:'receipt'}
+};
+const S = {e1:null,e2:null,e3:null,e4:null,e5:null};
+
+function chk(pre,ans,tot,fid,key){
+  let c=0;
+  for(const[k,v] of Object.entries(ans)){
+    const el=document.getElementById(pre+k);
+    if(!el) continue;
+    el.classList.remove('ok','bad');
+    if(el.value===v){el.classList.add('ok');c++;}
+    else if(el.value) el.classList.add('bad');
+  }
+  S[key]={c,t:tot};
+  const fb=document.getElementById(fid);
+  fb.classList.add('show');
+  if(c===tot){fb.className='fb show ok';fb.innerHTML='✅ Чудово! '+c+' / '+tot;}
+  else{fb.className='fb show bad';fb.innerHTML='Результат: <span class="sc">'+c+' / '+tot+'</span>. Перевірте червоні поля.';}
+}
+function rst(pre,keys,fid,key){
+  keys.forEach(k=>{const el=document.getElementById(pre+k);if(el){el.value='';el.classList.remove('ok','bad');}});
+  document.getElementById(fid).className='fb';S[key]=null;
+  document.getElementById('td').className='td';document.getElementById('td').innerHTML='';
+}
+function total(){
+  if(!S.e1) chk('a',Ans.a,6,'f1','e1');
+  if(!S.e2) chk('b',Ans.b,5,'f2','e2');
+  if(!S.e3) chk('c',Ans.c,12,'f3','e3');
+  if(!S.e4) chk('d',Ans.d,12,'f4','e4');
+  if(!S.e5) chk('e',Ans.e,12,'f5','e5');
+  const s1=S.e1.c,s2=S.e2.c,s3=S.e3.c,s4=S.e4.c,s5=S.e5.c;
+  const tot=s1+s2+s3+s4+s5, max=47, pct=Math.round(tot/max*100);
+  const box=document.getElementById('td');
+  let cls,msg;
+  if(pct>=80){cls='good';msg='Відмінно! 🎉';}
+  else if(pct>=50){cls='mid';msg='Добре, повторіть jobs & money vocabulary.';}
+  else{cls='bad';msg='Потрібно ще потренувати.';}
+  box.className='td show '+cls;
+  box.innerHTML='<div>'+msg+'</div><div class="big">'+tot+' / '+max+'</div><div>'+pct+'%</div><div class="bd"><div><span>1. Jobs reading gaps</span><span>'+s1+' / 6</span></div><div><span>2. Match meanings</span><span>'+s2+' / 5</span></div><div><span>3. Grammar revision</span><span>'+s3+' / 12</span></div><div><span>4. Shopping MCQ</span><span>'+s4+' / 12</span></div><div><span>5. Money gap fill</span><span>'+s5+' / 12</span></div></div>';
+}
+</script>
+</body>
+</html>
